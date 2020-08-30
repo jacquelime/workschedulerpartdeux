@@ -1,0 +1,3 @@
+// Establish date and time
+var today = moment();
+$("#currentDay").text(today.format("MMMM Do YYYY, h:mm:ss a"));
