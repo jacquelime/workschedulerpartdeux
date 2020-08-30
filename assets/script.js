@@ -17,8 +17,15 @@ console.log(tasks);
 
 var getTasks = function() {
     var loadedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (loadedTasks) {
+        tasks = loadedTasks
+        $.each(tasks, function(hour, task) {
+            var hourDiv = $("#" + hour);
+            createTask(task, hourDiv);
+        })
+    }
+    auditTasks()
 }
-
 
 getTasks();
 
@@ -26,3 +33,5 @@ getTasks();
 $(".saveBtn").click(function() {
     replaceTextarea($(this));
 })
+
+// Save tasks after refresh
